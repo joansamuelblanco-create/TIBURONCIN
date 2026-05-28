@@ -1,0 +1,112 @@
+/* Base Architectural Setup & Editorial Rules */
+html {
+    background-color: #050508;
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ocultar barra de scroll nativa del carrusel Pinterest */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Premium Film Grain Simulation Overlay */
+.film-grain {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.025"/%3E%3C/svg%3E');
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Fondos de Luz Líquida Rosada y Negra creados por puro código */
+.liquid-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(130px);
+    -webkit-filter: blur(130px);
+    mix-blend-mode: screen;
+    will-change: transform, opacity;
+}
+
+.glow-1 {
+    width: 65vw;
+    height: 65vw;
+    top: -20%;
+    left: -15%;
+    background: radial-gradient(circle, rgba(244,63,94,0.14) 0%, rgba(0,0,0,0) 70%);
+    animation: liquidMove1 20s ease-in-out infinite alternate;
+}
+
+.glow-2 {
+    width: 55vw;
+    height: 55vw;
+    bottom: -15%;
+    right: -10%;
+    background: radial-gradient(circle, rgba(244,63,94,0.11) 0%, rgba(10,17,40,0) 75%);
+    animation: liquidMove2 25s ease-in-out infinite alternate;
+}
+
+/* Órbitas matemáticas de movimiento líquido */
+@keyframes liquidMove1 {
+    0% { transform: translate(0px, 0px) scale(1); opacity: 0.6; }
+    50% { transform: translate(50px, -40px) scale(1.1); opacity: 0.9; }
+    100% { transform: translate(-30px, 20px) scale(0.95); opacity: 0.5; }
+}
+
+@keyframes liquidMove2 {
+    0% { transform: translate(0px, 0px) scale(1); opacity: 0.8; }
+    50% { transform: translate(-60px, 40px) scale(0.9); opacity: 0.4; }
+    100% { transform: translate(40px, -30px) scale(1.05); opacity: 0.7; }
+}
+
+/* Typography Enhancements */
+.low-bleed {
+    letter-spacing: -0.04em;
+}
+
+.text-shadow {
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* Glassmorphism Overlays Oscurecido */
+.glass-card {
+    background: rgba(9, 9, 13, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
+}
+
+/* Parallax Container Scaling */
+.parallax-bg {
+    transform: translateY(var(--scroll-offset, 0px));
+    will-change: transform;
+    transition: transform 0.1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Dynamic Entrance Animations on Scroll */
+.reveal-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.215, 0.610, 0.355, 1), transform 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

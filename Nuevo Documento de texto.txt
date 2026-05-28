@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Archives — Isa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500&family=Plus+Jakarta+Sans:ital,wght=0,300;0,400;0,600;1,300&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sky: { 100: '#e0f2fe', 200: '#bae6fd', 900: '#0c4a6e' },
+                        rose: { 500: '#f43f5e', 100: '#ffe4e6' },
+                        navy: { 900: '#0a1128', 800: '#111c44' }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        manrope: ['Manrope', 'sans-serif'],
+                        space: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body class="bg-[#f4f7f6] text-navy-900 overflow-x-hidden antialiased font-sans">
+
+    <div class="film-grain"></div>
+
+    <div class="fixed bottom-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-tr from-sky-100/30 to-transparent blur-[120px] pointer-events-none z-0 animate-pulse-slow"></div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 px-8 py-6 md:px-16 flex justify-between items-center mix-blend-difference text-white">
+        <a href="index.html" class="font-space text-xl tracking-widest uppercase opacity-90 hover:opacity-100 transition-opacity">Isa.</a>
+        <div class="flex gap-12 font-manrope text-sm tracking-widest uppercase">
+            <a href="index.html" class="relative group opacity-70 hover:opacity-100 transition-all">
+                Home
+                <span class="absolute bottom-[-4px] left-0 w-full h-[1px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+            </a>
+            <a href="gallery.html" class="relative group active-nav-link">
+                Archive
+                <span class="absolute bottom-[-4px] left-0 w-full h-[1px] bg-white scale-x-100 transition-transform origin-left"></span>
+            </a>
+        </div>
+    </nav>
+
+    <header class="pt-40 pb-20 px-6 md:px-16 max-w-7xl mx-auto z-10 relative">
+        <div class="max-w-2xl">
+            <span class="font-space text-xs uppercase tracking-[0.3em] text-rose-500 font-medium block mb-4">Index Retrospective</span>
+            <h1 class="font-sans text-5xl md:text-7xl font-light tracking-tight italic mb-6">The Continuous Study of Light</h1>
+            <p class="font-manrope text-navy-900/60 leading-relaxed text-sm md:text-base">
+                An ongoing compilation of moments, landscapes, and details framing Isabella. Fifty select instances captured across time, preserved in an raw editorial array.
+            </p>
+        </div>
+    </header>
+
+    <main class="px-4 md:px-16 max-w-[1800px] mx-auto pb-40 z-10 relative">
+        <div id="masonry-grid" class="masonry-grid">
+            </div>
+    </main>
+
+    <div id="lightbox" class="fixed inset-0 bg-navy-900/95 backdrop-blur-xl z-50 opacity-0 pointer-events-none transition-all duration-500 flex flex-col justify-between p-6">
+        <div class="flex justify-between items-center w-full z-50 text-white/70 font-space text-xs tracking-widest uppercase">
+            <div id="lightbox-counter">01 / 50</div>
+            <button id="close-lightbox" class="hover:text-white transition-colors p-4 flex items-center gap-2">
+                Close <span class="text-xl font-light">✕</span>
+            </button>
+        </div>
+
+        <div class="w-full flex-grow flex items-center justify-center relative my-4">
+            <button id="prev-btn" class="absolute left-4 md:left-8 text-white/50 hover:text-white transition-colors text-3xl font-light p-4 z-50 select-none">
+                &larr;
+            </button>
+            <img id="lightbox-img" src="" alt="" class="max-h-[75vh] max-w-[90vw] md:max-w-[75vw] object-contain shadow-2xl transition-transform duration-500 scale-95 opacity-0">
+            <button id="next-btn" class="absolute right-4 md:right-8 text-white/50 hover:text-white transition-colors text-3xl font-light p-4 z-50 select-none">
+                &rarr;
+            </button>
+        </div>
+
+        <div class="text-center text-white/60 font-manrope text-sm tracking-wide py-4 z-50">
+            <p id="lightbox-caption" class="italic font-light"></p>
+        </div>
+    </div>
+
+    <script src="js/gallery.js"></script>
+</body>
+</html>
